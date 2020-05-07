@@ -6,6 +6,7 @@ import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
+import { ScrapingModule } from './scraping/scraping.module';
 
 @NgModule({
   imports: [
@@ -17,9 +18,12 @@ import { AppComponent } from './app/app.component';
     CoreModule,
 
     // app
-    AppRoutingModule
+    AppRoutingModule,
+
+    // other modules
+    ScrapingModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

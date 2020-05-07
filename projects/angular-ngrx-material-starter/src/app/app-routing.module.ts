@@ -30,6 +30,11 @@ const routes: Routes = [
       import('./features/examples/examples.module').then(m => m.ExamplesModule)
   },
   {
+    path: 'scraping',
+    loadChildren: () =>
+      import('./scraping/scraping.module').then(m => m.ScrapingModule)
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }
@@ -46,4 +51,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

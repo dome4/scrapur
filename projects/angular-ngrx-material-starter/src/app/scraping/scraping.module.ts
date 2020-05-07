@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ScrapingComponent } from './scraping.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ScrapingService } from './services/scraping/scraping.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -18,8 +20,13 @@ const COMPONENTS = [
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
+    SharedModule,
+    RouterModule.forChild(routes),
+
+    // material
+    MatFormFieldModule,
+    MatIconModule
+
   ],
   providers: [ScrapingService]
 })

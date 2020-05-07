@@ -14,6 +14,8 @@ export class ScrapingComponent implements OnInit {
   // url used in the iframe
   public urlSafe: SafeResourceUrl;
 
+  public value = 'Clear me';
+
   constructor(
     private sanitizer: DomSanitizer
   ) { }

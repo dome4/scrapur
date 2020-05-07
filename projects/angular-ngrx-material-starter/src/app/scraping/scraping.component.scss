@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+.scraping-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  flex-wrap: nowrap;
+
+  color: #e0e0e0;
+  background-color: #212121;
+}
+.scraping-nav {
+  min-height: 200px;
+}
+
+.example-form-field {
+  width: 200px;
+}

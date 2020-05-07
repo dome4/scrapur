@@ -1,0 +1,69 @@
+<div class="container scraping-container" rtl>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+          <div class="row">
+            <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+              <input matInput placeholder="company name"
+                formControlName="name">
+            </mat-form-field>
+            <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+              <input matInput type="tel" placeholder="phone number"
+                formControlName="phone">
+            </mat-form-field>
+            <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+              <input matInput type="url" placeholder="website"
+                formControlName="url">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+              <input matInput placeholder="mail"
+                formControlName="email" type="email">
+              <mat-error *ngIf="form.get('email').hasError('email')">
+                not a valid mail address</mat-error>
+            </mat-form-field>
+            <mat-checkbox class="col" formControlName="validData" [ngClass]="routeAnimationsElements">
+              valid data
+            </mat-checkbox>
+            <mat-checkbox class="col" formControlName="addedToHubspot" [ngClass]="routeAnimationsElements">
+              added to hubspot
+            </mat-checkbox>
+          </div>
+
+          <div class="row buttons d-flex justify-content-between pad">
+            <button mat-raised-button
+              [ngClass]="routeAnimationsElements"
+              type="button"
+            >
+              <i class="material-icons">skip_previous</i>
+              Previous
+            </button>
+            <div>
+              <button type="reset" mat-raised-button color="accent" style="margin-right: 20px;"
+                [ngClass]="routeAnimationsElements"
+                [disabled]="form.pristine"
+                >
+                <i class="material-icons">clear</i>
+                Reset
+              </button>
+              <button type="submit" mat-raised-button color="primary"
+                [ngClass]="routeAnimationsElements"
+                [disabled]="form.pristine || form.invalid"
+                >
+                <!-- [disabled]="form.get('autosave').value" -->
+                <!-- (click)="save()" -->
+                <i class="material-icons">save</i>
+                Save
+              </button>
+            </div>
+            <button type="button" mat-raised-button [ngClass]="routeAnimationsElements">
+              Next
+              <i class="material-icons">skip_next</i>
+            </button>
+          </div>
+      </div>
+    </div>
+  </form>
+
+</div>

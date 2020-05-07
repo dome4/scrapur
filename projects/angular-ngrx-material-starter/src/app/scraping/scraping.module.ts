@@ -5,6 +5,7 @@ import { ScrapingService } from './services/scraping/scraping.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../shared/shared.module';
+import { ScrapingFooterComponent } from './components/scraping-footer/scraping-footer.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
 ];
 
 const COMPONENTS = [
-  ScrapingComponent
+  ScrapingComponent,
+  ScrapingFooterComponent
 ];
 
 @NgModule({

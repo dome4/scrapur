@@ -35,6 +35,11 @@ const routes: Routes = [
       import('./scraping/scraping.module').then(m => m.ScrapingModule)
   },
   {
+    path: 'company',
+    loadChildren: () =>
+      import('./company/company.module').then(m => m.CompanyModule)
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }

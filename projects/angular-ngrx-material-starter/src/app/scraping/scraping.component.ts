@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'anms-scraping',
@@ -8,9 +9,17 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ScrapingComponent implements OnInit {
 
-  constructor() { }
+  private url: string = 'https://angular.io/api/router/RouterLink';
+
+  // url used in the iframe
+  public urlSafe: SafeResourceUrl;
+
+  constructor(
+    private sanitizer: DomSanitizer
+  ) { }
 
   ngOnInit(): void {
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
 }

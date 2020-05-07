@@ -3,15 +3,13 @@
   <mat-sidenav-container>
 
     <mat-sidenav #sidenav mode="push">
-      <div class="branding"><img [src]="logo" [alt]="logo"/>
-        <span>{{ 'anms.title.short' | translate}}</span></div>
+      <div class="branding">
+        <!-- <img [src]="logo" [alt]="logo"/> -->
+        <span>Scrapur</span></div>
       <mat-nav-list>
         <a mat-list-item *ngFor="let item of navigationSideMenu" (click)="sidenav.close()" [routerLink]="[item.link]"
           routerLinkActive="active">
           {{item.label | translate}}
-        </a>
-        <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank" rel="noopener noreferrer">
-          Github
         </a>
       </mat-nav-list>
     </mat-sidenav>
@@ -26,11 +24,17 @@
           </button>
 
           <span routerLink="" class="branding spacer center d-inline d-sm-none">
-            <img [src]="logo" [alt]="logo"/></span>
-          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo" [alt]="logo"/> {{
-            'anms.title.short' | translate }}</span>
-          <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo"[alt]="logo" /> {{ 'anms.title.long' | translate
-            }}</span>
+            <!-- <img [src]="logo" [alt]="logo"/> -->
+            Scrapur
+          </span>
+          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none">
+            <!-- <img [src]="logo" [alt]="logo"/>  -->
+            Scrapur
+          </span>
+          <span routerLink="" class="branding spacer d-none d-md-inline">
+            <!-- <img [src]="logo"[alt]="logo" /> -->
+            Scrapur
+          </span>
 
           <span class="d-none d-md-inline">
             <button mat-button class="nav-button" *ngFor="let item of navigation" [routerLink]="[item.link]"
@@ -39,11 +43,11 @@
             </button>
           </span>
 
-          <button mat-button mat-stroked-button color="accent" *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
+          <!-- <button mat-button mat-stroked-button color="accent" *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
             {{ 'anms.menu.login' | translate }}
-          </button>
+          </button> -->
 
-          <button *ngIf="(isAuthenticated$ | async)"
+          <!-- <button *ngIf="(isAuthenticated$ | async)"
                   mat-icon-button
                   [matMenuTriggerFor]="toolbarUserMenu">
             <fa-icon icon="user-circle"></fa-icon>
@@ -53,28 +57,12 @@
               <mat-icon><fa-icon icon="power-off"></fa-icon></mat-icon>
               <span>{{ 'anms.menu.logout' | translate }}</span>
             </button>
-          </mat-menu>
+          </mat-menu> -->
 
           <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
             <fa-icon icon="cog"></fa-icon>
           </button>
 
-          <a [matTooltip]="'anms.header.github' | translate"
-             matTooltipPosition="before"
-             mat-icon-button
-             class="link d-none d-sm-inline"
-             href="https://github.com/tomastrajan/angular-ngrx-material-starter"
-             target="_blank" rel="noopener noreferrer">
-            <fa-icon [icon]="['fab','github']"></fa-icon>
-          </a>
-
-          <span *ngIf="language$ | async as language">
-            <mat-select [ngModel]="language" (selectionChange)="onLanguageSelect($event)">
-              <mat-option *ngFor="let l of languages" [value]="l">
-                {{ l.toUpperCase() }}
-              </mat-option>
-            </mat-select>
-          </span>
         </mat-toolbar>
       </div>
 

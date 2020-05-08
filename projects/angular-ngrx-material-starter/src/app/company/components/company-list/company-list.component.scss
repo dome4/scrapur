@@ -1,0 +1,43 @@
+h1 {
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+mat-card {
+  margin: 0 0 10px 0;
+  cursor: pointer;
+}
+
+.mat-fab {
+  .fa-icon {
+    position: relative;
+    top: 4px;
+  }
+}
+
+.add {
+  margin: 20px auto 0;
+  display: block;
+}
+
+.col-md-6 {
+  margin-bottom: 20px;
+}
+table {
+  width: 100%;
+}
+.web-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  span {
+    margin-right: 10px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

@@ -1,4 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { CompaniesService } from '../../../core/companies/companies.service';
+import { Observable } from 'rxjs';
+import { Company } from '../../../core/companies/company.model';
+import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'anms-company-list',
@@ -7,10 +14,17 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompanyListComponent implements OnInit {
+  public routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
-  constructor() { }
+  public companies$: Observable<Company[]> = null;
+
+  public displayedColumns: string[] = ['name', 'phone', 'web', 'mail', 'employeeCount', 'location', 'validData', 'addedToHubspot'];
+
+  constructor(
+    private companiesService: CompaniesService
+  ) { }
 
   ngOnInit(): void {
+    this.companies$ = this.companiesService.getCompanies$();
   }
-
 }

@@ -4,6 +4,8 @@ import { CompanyComponent } from './company.component';
 import { SharedModule } from '../shared/shared.module';
 import { CompanyListComponent } from './components/company-list/company-list.component';
 import { CompanyDetailComponent } from './components/company-detail/company-detail.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -28,6 +30,10 @@ const COMPONENTS = [
   imports: [
     SharedModule,
     RouterModule.forChild(routes),
+
+    // material
+    MatPaginatorModule,
+    MatTableModule,
   ]
 })
 export class CompanyModule { }

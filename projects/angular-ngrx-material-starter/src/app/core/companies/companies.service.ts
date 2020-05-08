@@ -5,12 +5,27 @@ import { take, map } from 'rxjs/operators';
 import { CompaniesStateInvalidData, CompaniesStateInvalidCompany } from './companies.error';
 import { remove } from 'lodash';
 
+const dummyData: Company[] = [
+  {
+    id: '1',
+    name: 'Angular',
+    phone: '01234567',
+    web: 'https://angular.io/',
+    mail: 'info@angular.io',
+    employeeCount: 20,
+    location: 'USA',
+    validData: true,
+    addedToHubspot: false
+  }
+];
+
 @Injectable({
   providedIn: 'root'
 })
 export class CompaniesService {
 
-  private _companies$ = new BehaviorSubject<Company[]>([]);
+  // private _companies$ = new BehaviorSubject<Company[]>([]);
+  private _companies$ = new BehaviorSubject<Company[]>(dummyData);
 
   constructor() { }
 
@@ -59,7 +74,7 @@ export class CompaniesService {
     this._companies$.next(companies);
   }
 
-  public getCompanyById(id: string): Observable<Company> {
+  public getCompanyById$(id: string): Observable<Company> {
     return this._companies$.pipe(
       map((companies: Company[]) => {
         if (!companies || !Array.isArray(companies) || !id) {
@@ -70,7 +85,7 @@ export class CompaniesService {
     )
   }
 
-  public getCompanies(): Observable<Company[]> {
+  public getCompanies$(): Observable<Company[]> {
     return this._companies$;
   }
 

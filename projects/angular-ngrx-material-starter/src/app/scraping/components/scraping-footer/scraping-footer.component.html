@@ -1,32 +1,55 @@
 <div class="container scraping-container" rtl>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
     <div class="row justify-content-center">
       <div class="col-md-12">
           <div class="row">
             <mat-form-field class="col" [ngClass]="routeAnimationsElements">
-              <input matInput placeholder="company name"
-                formControlName="name">
+              <input
+                matInput
+                placeholder="company name"
+                [(ngModel)]="selectedCompany.name"
+                name="name">
             </mat-form-field>
             <mat-form-field class="col" [ngClass]="routeAnimationsElements">
-              <input matInput type="tel" placeholder="phone number"
-                formControlName="phone">
+              <input
+                matInput
+                type="tel"
+                placeholder="phone number"
+                [(ngModel)]="selectedCompany.phone"
+                name="phone">
             </mat-form-field>
             <mat-form-field class="col" [ngClass]="routeAnimationsElements">
-              <input matInput type="url" placeholder="website"
-                formControlName="url">
+              <input
+                matInput
+                type="url"
+                placeholder="website"
+                [(ngModel)]="selectedCompany.web"
+                name="web">
             </mat-form-field>
           </div>
           <div class="row">
             <mat-form-field class="col" [ngClass]="routeAnimationsElements">
-              <input matInput placeholder="mail"
-                formControlName="email" type="email">
+              <input
+                matInput
+                placeholder="mail"
+                [(ngModel)]="selectedCompany.mail"
+                name="mail"
+                type="email">
               <mat-error *ngIf="form.get('email').hasError('email')">
                 not a valid mail address</mat-error>
             </mat-form-field>
-            <mat-checkbox class="col" formControlName="validData" [ngClass]="routeAnimationsElements">
+            <mat-checkbox
+              class="col"
+              [(ngModel)]="selectedCompany.validData"
+              name="validData"
+              [ngClass]="routeAnimationsElements">
               valid data
             </mat-checkbox>
-            <mat-checkbox class="col" formControlName="addedToHubspot" [ngClass]="routeAnimationsElements">
+            <mat-checkbox
+              class="col"
+              [(ngModel)]="selectedCompany.addedToHubspot"
+              name="addedToHubspot"
+              [ngClass]="routeAnimationsElements">
               added to hubspot
             </mat-checkbox>
           </div>
@@ -35,6 +58,7 @@
             <button mat-raised-button
               [ngClass]="routeAnimationsElements"
               type="button"
+              (click)="onPrevious()"
             >
               <i class="material-icons">skip_previous</i>
               Previous
@@ -57,7 +81,7 @@
                 Save
               </button>
             </div>
-            <button type="button" mat-raised-button [ngClass]="routeAnimationsElements">
+            <button (click)="onNext()" type="button" mat-raised-button [ngClass]="routeAnimationsElements">
               Next
               <i class="material-icons">skip_next</i>
             </button>

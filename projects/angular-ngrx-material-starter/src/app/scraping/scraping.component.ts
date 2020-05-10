@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { Company } from '../core/companies/company.model';
 
 @Component({
   selector: 'anms-scraping',
@@ -9,19 +10,23 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 })
 export class ScrapingComponent implements OnInit {
 
-  private url: string = 'https://angular.io/api/router/RouterLink';
-
   // url used in the iframe
   public urlSafe: SafeResourceUrl;
-
-  public value = 'Clear me';
 
   constructor(
     private sanitizer: DomSanitizer
   ) { }
 
-  ngOnInit(): void {
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+  ngOnInit(): void { }
+
+  public onCompanyChanged(company: Company) {
+    console.log('company changed: ', company);
+
+    if (company && company.web) {
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(company.web);
+    } else {
+      this.urlSafe = null;
+    }
   }
 
 }

@@ -6,6 +6,8 @@ import { CompanyListComponent } from './components/company-list/company-list.com
 import { CompanyDetailComponent } from './components/company-detail/company-detail.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { CompanyImportComponent } from './components/company-import/company-import.component';
+import { FilePickerDirective } from './directives/file-picker.directive';
 
 const routes: Routes = [
   {
@@ -22,7 +24,10 @@ const routes: Routes = [
 const COMPONENTS = [
   CompanyComponent,
   CompanyListComponent,
-  CompanyDetailComponent
+  CompanyDetailComponent,
+  CompanyImportComponent,
+
+  FilePickerDirective
 ];
 
 @NgModule({

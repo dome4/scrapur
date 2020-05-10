@@ -1,0 +1,13 @@
+[
+  {
+    "id": "1",
+    "name": "Angular",
+    "phone": "01234567",
+    "web": "https://angular.io/",
+    "mail": "info@angular.io",
+    "employeeCount": 20,
+    "location": "USA",
+    "validData": true,
+    "addedToHubspot": false
+  }
+]

@@ -1,11 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CompaniesService } from '../../../core/companies/companies.service';
 import { Observable } from 'rxjs';
 import { Company } from '../../../core/companies/company.model';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'anms-company-list',
@@ -26,5 +23,14 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.companies$ = this.companiesService.getCompanies$();
+  }
+
+  public onImportCompanies(companies: Company[]) {
+    console.log('imported file: ', companies);
+
+    // prepare json array of companies
+    // TODO: validate json schema: https://github.com/ajv-validator/ajv
+
+    this.companiesService.addCompanies(companies);
   }
 }

@@ -1,1 +1,79 @@
-<p>companies-list works!</p>
+<clr-datagrid>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: true }">
+      Company ID
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Name
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Phone
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Web
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Mail
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Employee Count
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Location
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Valid Data
+    </ng-container>
+  </clr-dg-column>
+  <clr-dg-column>
+    <ng-container *clrDgHideableColumn="{ hidden: false }">
+      Added to Hubspot
+    </ng-container>
+  </clr-dg-column>
+
+  <clr-dg-row *ngFor="let company of companies$ | async">
+    <clr-dg-cell>{{ company.id }}</clr-dg-cell>
+    <clr-dg-cell>{{ company.name }}</clr-dg-cell>
+    <clr-dg-cell>{{ company.phone }}</clr-dg-cell>
+    <clr-dg-cell>
+      <span>{{ company.web }}</span>
+      <a [href]="company.web" target="_blank">
+        <clr-icon shape="pop-out"></clr-icon>
+      </a>
+    </clr-dg-cell>
+    <clr-dg-cell>{{ company.mail }}</clr-dg-cell>
+    <clr-dg-cell>{{ company.employeeCount }}</clr-dg-cell>
+    <clr-dg-cell>{{ company.location }}</clr-dg-cell>
+    <clr-dg-cell>
+      <input
+        type="checkbox"
+        clrCheckbox
+        disabled
+        [ngModel]="company.validData"
+      />
+    </clr-dg-cell>
+    <clr-dg-cell>
+      <input
+        type="checkbox"
+        clrCheckbox
+        disabled
+        [ngModel]="company.addedToHubspot"
+    /></clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{ (companies$ | async).length }} companies</clr-dg-footer>
+</clr-datagrid>

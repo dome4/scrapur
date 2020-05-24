@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import { CompaniesComponent } from './companies.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,7 +22,7 @@ const ROUTES: Routes = [
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(ROUTES)
   ]
 })

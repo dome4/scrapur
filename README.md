@@ -22,10 +22,10 @@ by [@dome4](https://github.com/dome4)
 ## Features (done)
 
 - companies state
+- company datagrid (read only)
 
 ## Features (planned)
 
-- company datagrid (read only)
 - local storage service
 - JSON document upload
 - iFrame view

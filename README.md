@@ -38,3 +38,5 @@ by [@dome4](https://github.com/dome4)
 
 - [Angular](https://angular.io/)
 - [Clarity](https://clarity.design/)
+- [RxJS](https://github.com/reactivex/rxjs)
+- [Lodash](https://github.com/lodash/lodash)

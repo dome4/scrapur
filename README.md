@@ -1,27 +1,42 @@
 # Scrapur
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+by [@dome4](https://github.com/dome4)
 
-## Development server
+![intro](./.github/screenshot.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<!-- ## Table of Content
 
-## Code scaffolding
+- [Live Demo](https://tomastrajan.github.io/angular-ngrx-material-starter)
+- [Getting Started](#getting-started)
+- [Useful Commands](#useful-commands)
+- [Make It Your Own](#make-it-your-own)
+- [Goals](#goals)
+- [Learning Materials](#learning-materials)
+- [List of Projects Built Using This Starter](https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/BUILT_WITH.md)
+- [Features](#features)
+- [Stack](#stack)
+- [Code of Conduct](https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CODE_OF_CONDUCT.md)
+- [Contributors Guide](https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CONTRIBUTING.md)
+- [Changelog](https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CHANGELOG.md) ( get notified about the newest releases, [follow Release Butler](https://twitter.com/releasebutler) on Twitter ) -->
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features (done)
 
-## Build
+- none
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Features (planned)
 
-## Running unit tests
+- inlcude clarity
+- setup project strucutre
+- JSON document upload
+- companies state
+- company datagrid (read only)
+- local storage service
+- iFrame view
+- CSV document upload
+- document validation
+- company datagrid (CRUD)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Stack
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [Angular](https://angular.io/)
+- [Clarity](https://clarity.design/)

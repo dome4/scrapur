@@ -21,11 +21,10 @@ by [@dome4](https://github.com/dome4)
 
 ## Features (done)
 
-- none
+- companies state
 
 ## Features (planned)
 
-- companies state
 - company datagrid (read only)
 - local storage service
 - JSON document upload

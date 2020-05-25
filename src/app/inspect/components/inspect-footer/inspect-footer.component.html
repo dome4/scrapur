@@ -1,0 +1,21 @@
+<form
+  clrForm
+  (ngSubmit)="onSubmit(form)"
+  #form="ngForm"
+  *ngIf="selectedCompany"
+>
+  <clr-input-container>
+    <label>Name</label>
+    <input
+      clrInput
+      type="text"
+      [(ngModel)]="selectedCompany.name"
+      placeholder="company name"
+      name="name"
+    />
+    <clr-control-error
+      >Error message that appears after focus is lost and control is
+      invalid</clr-control-error
+    >
+  </clr-input-container>
+</form>

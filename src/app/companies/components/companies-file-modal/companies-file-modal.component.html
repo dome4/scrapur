@@ -1,0 +1,17 @@
+<clr-modal
+  [clrModalOpen]="fileModalOpen"
+  (clrModalOpenChange)="onFileModalOpenChanged($event)"
+>
+  <h3 class="modal-title">File picker</h3>
+  <div class="modal-body">
+    <app-file-picker (file)="onFileUploaded($event)"></app-file-picker>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="onCancel()">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">
+      Ok
+    </button>
+  </div>
+</clr-modal>

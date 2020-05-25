@@ -4,10 +4,12 @@ import { SharedModule } from '../shared/shared.module';
 import { CompaniesComponent } from './companies.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CompaniesListComponent } from './components/companies-list/companies-list.component';
+import { CompaniesFileModalComponent } from './components/companies-file-modal/companies-file-modal.component';
 
 const COMPONENTS = [
   CompaniesComponent,
-  CompaniesListComponent
+  CompaniesListComponent,
+  CompaniesFileModalComponent
 ];
 
 const ROUTES: Routes = [

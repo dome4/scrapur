@@ -6,6 +6,7 @@
       class="btn btn-icon"
       aria-label="add companies"
       title="add companies"
+      (click)="showFileModal = true"
     >
       <clr-icon shape="plus"></clr-icon>
     </button>
@@ -91,3 +92,7 @@
     <clr-dg-footer>{{ (companies$ | async).length }} companies</clr-dg-footer>
   </clr-datagrid>
 </article>
+
+<app-companies-file-modal
+  [(fileModalOpen)]="showFileModal"
+></app-companies-file-modal>

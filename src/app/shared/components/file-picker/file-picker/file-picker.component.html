@@ -1,0 +1,21 @@
+<div class="import-container">
+  <div
+    class="drop-zone-container"
+    appFilePicker
+    #dropZonePicker="appFilePicker"
+    (filesChanged)="onFilesChanged($event)"
+  >
+    <ng-container
+      *ngIf="file | async; then fileUploaded; else uploadFile"
+    ></ng-container>
+    <ng-template #uploadFile>
+      <clr-icon shape="plus-circle" size="36"></clr-icon>
+      <span>Drag & Drop File</span>
+    </ng-template>
+
+    <ng-template #fileUploaded>
+      <clr-icon shape="file" size="36"></clr-icon>
+      <span>{{ fileName }}</span>
+    </ng-template>
+  </div>
+</div>

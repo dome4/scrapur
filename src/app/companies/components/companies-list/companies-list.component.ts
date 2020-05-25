@@ -12,6 +12,8 @@ export class CompaniesListComponent implements OnInit {
 
   public companies$: Observable<Company[]> = null;
 
+  public showFileModal: boolean = false;
+
   constructor(
     private companiesService: CompaniesService
   ) { }
@@ -19,5 +21,4 @@ export class CompaniesListComponent implements OnInit {
   ngOnInit(): void {
     this.companies$ = this.companiesService.getCompanies$();
   }
-
 }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClarityModule } from '@clr/angular';
 import { FormsModule } from '@angular/forms';
+import { FilePickerDirective } from './directives/file-picker/file-picker.directive';
+import { FilePickerComponent } from './components/file-picker/file-picker/file-picker.component';
 
 const MODULES = [
   CommonModule,
@@ -9,10 +11,18 @@ const MODULES = [
   ClarityModule
 ];
 
+const COMPONENTS = [
+  FilePickerDirective,
+  FilePickerComponent
+];
+
 
 @NgModule({
-  declarations: [],
+  declarations: [...COMPONENTS],
   imports: [...MODULES],
-  exports: [...MODULES]
+  exports: [
+    ...MODULES,
+    ...COMPONENTS
+  ]
 })
 export class SharedModule { }

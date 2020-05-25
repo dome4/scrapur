@@ -23,10 +23,10 @@ by [@dome4](https://github.com/dome4)
 
 - companies state
 - company datagrid (read only)
+- local storage service
 
 ## Features (planned)
 
-- local storage service
 - JSON document upload
 - iFrame view
 - CSV document upload

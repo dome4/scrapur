@@ -4,6 +4,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { CompaniesStateInvalidData, CompaniesStateInvalidCompany } from './companies.error';
 import { remove } from 'lodash';
+import { LocalStorageService } from '../../services/local-storage/local-storage.service';
+
+export const COMPANIES_KEY = 'COMPANIES';
 
 const dummyData: Company[] = [
   {
@@ -27,7 +30,11 @@ export class CompaniesService {
   // private companies$ = new BehaviorSubject<Company[]>([]);
   private companies$ = new BehaviorSubject<Company[]>(dummyData);
 
-  constructor() { }
+  constructor(
+    private storageService: LocalStorageService
+  ) {
+    this.loadInitialState();
+  }
 
   public async addCompany(company: Company): Promise<void> {
     const companies: Company[] = await this.getCurrentState();
@@ -36,6 +43,7 @@ export class CompaniesService {
     }
     companies.push(company);
     this.companies$.next(companies);
+    this.persistCompanies(companies);
   }
 
   public async addCompanies(newCompanies: Company[]): Promise<void> {
@@ -48,6 +56,7 @@ export class CompaniesService {
       ...newCompanies
     ];
     this.companies$.next(companies);
+    this.persistCompanies(companies);
   }
 
   public async deleteCompanyById(id: string): Promise<void> {
@@ -57,6 +66,7 @@ export class CompaniesService {
     }
     remove(companies, (company: Company) => company.id === id);
     this.companies$.next(companies);
+    this.persistCompanies(companies);
   }
 
   public async updateCompany(newCompany: Company): Promise<void> {
@@ -72,6 +82,7 @@ export class CompaniesService {
 
     companies.splice(index, 1, newCompany);
     this.companies$.next(companies);
+    this.persistCompanies(companies);
   }
 
   public getCompanyById$(id: string): Observable<Company> {
@@ -93,5 +104,18 @@ export class CompaniesService {
     return this.companies$.pipe(
       take(1)
     ).toPromise();
+  }
+
+  private persistCompanies(companies: Company[]): void {
+    this.storageService.setItem(COMPANIES_KEY, companies);
+  }
+
+  private loadInitialState() {
+    const companies = this.storageService.getItem(COMPANIES_KEY);
+    console.log('load companies from local storage: ', companies);
+
+    if (companies) {
+      this.companies$.next(companies);
+    }
   }
 }

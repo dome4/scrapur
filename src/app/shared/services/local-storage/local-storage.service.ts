@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const APP_PREFIX = 'scrapur-';
+const APP_PREFIX = 'SCRAPUR_';
 
 @Injectable({
   providedIn: 'root'
@@ -8,37 +8,6 @@ const APP_PREFIX = 'scrapur-';
 export class LocalStorageService {
 
   constructor() { }
-
-  static loadInitialState() {
-    return Object.keys(localStorage).reduce((state: any, storageKey) => {
-      if (storageKey.includes(APP_PREFIX)) {
-        const stateKeys = storageKey
-          .replace(APP_PREFIX, '')
-          .toLowerCase()
-          .split('.')
-          .map(key =>
-            key
-              .split('-')
-              .map((token, index) =>
-                index === 0
-                  ? token
-                  : token.charAt(0).toUpperCase() + token.slice(1)
-              )
-              .join('')
-          );
-        let currentStateRef = state;
-        stateKeys.forEach((key, index) => {
-          if (index === stateKeys.length - 1) {
-            currentStateRef[key] = JSON.parse(localStorage.getItem(storageKey));
-            return;
-          }
-          currentStateRef[key] = currentStateRef[key] || {};
-          currentStateRef = currentStateRef[key];
-        });
-      }
-      return state;
-    }, {});
-  }
 
   public setItem(key: string, value: any) {
     localStorage.setItem(`${APP_PREFIX}${key}`, JSON.stringify(value));
